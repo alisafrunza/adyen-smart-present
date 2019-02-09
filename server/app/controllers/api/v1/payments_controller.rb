@@ -4,7 +4,7 @@ class Api::V1::PaymentsController < ApplicationController
 
   def create
     checkout_adyen
-    render json: { success: Payment.last.status }
+    render json: { status: Payment.last.status }
   end
 
   private
@@ -28,12 +28,6 @@ class Api::V1::PaymentsController < ApplicationController
     }
 
     payment = Payment.create(
-      card_number: body[:paymentMethod][:number],
-      cvc: body[:paymentMethod][:cvc],
-      amount: body[:amount][:value],
-      currency: body[:amount][:currency],
-      expiry_month: body[:paymentMethod][:expiryMonth],
-      expiry_year: body[:paymentMethod][:expiryYear],
       giver_reference: body[:reference],
       giver_email: "alisa@test.com",
       comment: "ADD COMMENT HERE!",
