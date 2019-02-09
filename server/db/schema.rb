@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_134352) do
+ActiveRecord::Schema.define(version: 2019_02_09_135837) do
+
+  create_table "items", force: :cascade do |t|
+    t.text "name"
+    t.text "link"
+    t.text "image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "wishlist_id"
+    t.index ["wishlist_id"], name: "index_items_on_wishlist_id"
+  end
 
   create_table "receivers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +41,12 @@ ActiveRecord::Schema.define(version: 2019_02_09_134352) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["receiver_id"], name: "index_wallets_on_receiver_id"
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
