@@ -3,6 +3,7 @@ class Receiver < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :wallet, dependent: :destroy
+  has_many :wishlists
 
   after_create :create_wallet
 

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :receivers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :wishlists
+
+  namespace :api do
+    namespace :v1 do
+      resources :payments
+    end
+  end
 end
