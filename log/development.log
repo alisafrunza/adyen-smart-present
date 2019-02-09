@@ -1,0 +1,712 @@
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateReceivers (20190209115445)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "receivers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:5
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_receivers_on_email" ON "receivers" ("email")[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_receivers_on_reset_password_token" ON "receivers" ("reset_password_token")[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209115445"]]
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-09 11:54:56.693763"], ["updated_at", "2019-02-09 11:54:56.693763"]]
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:23:30 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (5.3ms)
+Completed 200 OK in 40ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receiver/sign_up" for 127.0.0.1 at 2019-02-09 13:23:37 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/receiver/sign_up"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/receiver/sign_ip" for 127.0.0.1 at 2019-02-09 13:23:50 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/receiver/sign_ip"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/receiver/sign_in" for 127.0.0.1 at 2019-02-09 13:23:53 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/receiver/sign_in"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/receivers/sign_in" for 127.0.0.1 at 2019-02-09 13:24:04 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (2.6ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/sessions/new.html.erb within layouts/application (50.4ms)
+Completed 200 OK in 443ms (Views: 413.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:24:09 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_error_messages.html.erb (1.3ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (1.6ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 105ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190209122518)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "amount" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209122518"]]
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:30:48 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_error_messages.html.erb (0.8ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (2.4ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application (36.6ms)
+Completed 200 OK in 358ms (Views: 331.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:31:04 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJtC2CrOcHufqHoWJ8LQmhJS/J67FnlM7vKA7204j7iXK2DpN0pOvc+5gw3Vk2H7Y2+oaTwR0AkuMk0Qu4gYGg==", "receiver"=>{"email"=>"alisa@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (0.5ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test.com"], ["encrypted_password", "$2a$11$rTSYtaQMn9rqhXVHrAaaeemKbzDUiZNFSzUrsP5LZ74qhnJ7gbMve"], ["created_at", "2019-02-09 12:31:04.615638"], ["updated_at", "2019-02-09 12:31:04.615638"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007ff416bf7d60>
+Did you mean?  try):
+  
+app/models/receiver.rb:12:in `create_wallet'
+app/models/receiver.rb:8:in `block in <class:Receiver>'
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:31:55 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJtC2CrOcHufqHoWJ8LQmhJS/J67FnlM7vKA7204j7iXK2DpN0pOvc+5gw3Vk2H7Y2+oaTwR0AkuMk0Qu4gYGg==", "receiver"=>{"email"=>"alisa@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (2.6ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test.com"], ["encrypted_password", "$2a$11$0rihJLq2OFKBzPCOhise1.VNLKa47enjX3VXeQ3M5D7wtqhM5MIXm"], ["created_at", "2019-02-09 12:31:56.132066"], ["updated_at", "2019-02-09 12:31:56.132066"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 5.1ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007fed05690bc8>
+Did you mean?  try):
+  
+app/models/receiver.rb:12:in `create_wallet'
+app/models/receiver.rb:8:in `block in <class:Receiver>'
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:32:09 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJtC2CrOcHufqHoWJ8LQmhJS/J67FnlM7vKA7204j7iXK2DpN0pOvc+5gw3Vk2H7Y2+oaTwR0AkuMk0Qu4gYGg==", "receiver"=>{"email"=>"alisa@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (0.5ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test.com"], ["encrypted_password", "$2a$11$gFNt0xyANga8hi5C1O05tuBer.L2aWpKtt2659fLZs3pn9isCJaSa"], ["created_at", "2019-02-09 12:32:09.772181"], ["updated_at", "2019-02-09 12:32:09.772181"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 2.7ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007fed043fa388>
+Did you mean?  try):
+  
+app/models/receiver.rb:12:in `create_wallet'
+app/models/receiver.rb:8:in `block in <class:Receiver>'
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:32:11 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJtC2CrOcHufqHoWJ8LQmhJS/J67FnlM7vKA7204j7iXK2DpN0pOvc+5gw3Vk2H7Y2+oaTwR0AkuMk0Qu4gYGg==", "receiver"=>{"email"=>"alisa@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (0.4ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test.com"], ["encrypted_password", "$2a$11$90UFuImwRX8ZHBhFWnI63OaTn8pK1CEzSJY2pXEOeJwheN6rVSCgy"], ["created_at", "2019-02-09 12:32:11.307643"], ["updated_at", "2019-02-09 12:32:11.307643"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 209ms (ActiveRecord: 2.9ms)
+
+
+  
+NoMethodError (undefined method `pry' for #<Binding:0x007fed056e9700>
+Did you mean?  try):
+  
+app/models/receiver.rb:12:in `create_wallet'
+app/models/receiver.rb:8:in `block in <class:Receiver>'
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:33:10 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mJtC2CrOcHufqHoWJ8LQmhJS/J67FnlM7vKA7204j7iXK2DpN0pOvc+5gw3Vk2H7Y2+oaTwR0AkuMk0Qu4gYGg==", "receiver"=>{"email"=>"alisa@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (1.6ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test.com"], ["encrypted_password", "$2a$11$Owt9uRuwFlhLOYNPRjWXX.YqyVxF5jdA535pVGEKvgC11dENXE3sC"], ["created_at", "2019-02-09 12:33:10.834495"], ["updated_at", "2019-02-09 12:33:10.834495"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 52373ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:34:02 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 31ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190209122518)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "wallets"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190209122518"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190209122518)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "amount" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209122518"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mReceiver Load (9.4ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mReceiver Load (0.4ms)[0m  [1m[34mSELECT "receivers".* FROM "receivers"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWallet Load (0.8ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mWallet Load (0.3ms)[0m  [1m[34mSELECT "wallets".* FROM "wallets"[0m
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT "receivers".* FROM "receivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWallet Load (2.1ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (0.9ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:35:28 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 29ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:35:32 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mReceiver Load (0.4ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 31ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:35:32 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.3ms)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateReceivers (20190209115445)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "receivers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_receivers_on_email" ON "receivers" ("email")[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:39
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_receivers_on_reset_password_token" ON "receivers" ("reset_password_token")[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209115445"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190209122518)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "amount" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209122518"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-09 12:35:52.410920"], ["updated_at", "2019-02-09 12:35:52.410920"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:36:07 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 34ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:36:10 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mReceiver Load (0.8ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (2.7ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 407ms (Views: 367.0ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:36:20 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0JmeVDaQoCVNfz54hfThANzNkIaneTF8HNJCJrLV1+LfKbxlKxSe4x1ux2N3pVBhrfDEcSB+mDncEo/ZZGVAQA==", "receiver"=>{"email"=>"alisa@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (1.6ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test.com"], ["encrypted_password", "$2a$11$ji/6pMGbkItLIDJ5Sur60eC97tBfk1LnrTB89RnnFl/PFnF8Sh/rq"], ["created_at", "2019-02-09 12:36:20.965115"], ["updated_at", "2019-02-09 12:36:20.965115"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mWallet Load (3.1ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 213152ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:39:53 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateReceivers (20190209115445)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "receivers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_receivers_on_email" ON "receivers" ("email")[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:39
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_receivers_on_reset_password_token" ON "receivers" ("reset_password_token")[0m
+  ↳ db/migrate/20190209115445_devise_create_receivers.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209115445"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateWallets (20190209122518)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "wallets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "amount" decimal, "receiver_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_wallets_on_receiver_id" ON "wallets" ("receiver_id")[0m
+  ↳ db/migrate/20190209122518_create_wallets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190209122518"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-02-09 12:40:54.221242"], ["updated_at", "2019-02-09 12:40:54.221242"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:41:30 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 31ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:41:39 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:41:52 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mReceiver Load (0.7ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_error_messages.html.erb (1.1ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 378ms (Views: 337.8ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:42:04 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vhYEOQVEevBluPBMXHYmT76oWUDL4w3ZoD9LE+hTCzqxpiYIGMBENjWpCVeuJ5cuz5UNt0zkpJxg/4bsPuOcmA==", "receiver"=>{"email"=>"alisa@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@example.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (1.4ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@example.com"], ["encrypted_password", "$2a$11$8LzRkzMqgGfXlZsLLAeMB.D4PKC8KD8lMGnoGVcuzPmeWnpMMdIRa"], ["created_at", "2019-02-09 12:42:04.310002"], ["updated_at", "2019-02-09 12:42:04.310002"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mWallet Load (0.8ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+  ↳ (pry):1
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 129234ms (ActiveRecord: 5.3ms)
+
+
+  
+NoMethodError (undefined method `create' for nil:NilClass):
+  
+app/models/receiver.rb:13:in `create_wallet'
+app/models/receiver.rb:8:in `block in <class:Receiver>'
+  [1m[36mReceiver Load (0.4ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:46:05 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vhYEOQVEevBluPBMXHYmT76oWUDL4w3ZoD9LE+hTCzqxpiYIGMBENjWpCVeuJ5cuz5UNt0zkpJxg/4bsPuOcmA==", "receiver"=>{"email"=>"alisa@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@example.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (0.6ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@example.com"], ["encrypted_password", "$2a$11$Mh7dHqFidOojnlqOQBR5ue0jjIZlxLiH9/XNAOaMUgGVlYtO0ag3i"], ["created_at", "2019-02-09 12:46:05.681864"], ["updated_at", "2019-02-09 12:46:05.681864"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Load (0.2ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ (pry):8
+  [1m[36mWallet Create (1.0ms)[0m  [1m[32mINSERT INTO "wallets" ("amount", "receiver_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["amount", 0.0], ["receiver_id", 1], ["created_at", "2019-02-09 12:46:27.109806"], ["updated_at", "2019-02-09 12:46:27.109806"]]
+  ↳ (pry):8
+  [1m[36mWallet Load (0.1ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+  ↳ app/models/receiver.rb:13
+  [1m[35m (1.8ms)[0m  [1m[31mrollback transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Completed 500 Internal Server Error in 31755ms (ActiveRecord: 4.4ms)
+
+
+  
+NoMethodError (undefined method `create' for #<Wallet:0x007fdb7c9e90a8>
+Did you mean?  created_at):
+  
+app/models/receiver.rb:13:in `create_wallet'
+app/models/receiver.rb:8:in `block in <class:Receiver>'
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:46:47 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vhYEOQVEevBluPBMXHYmT76oWUDL4w3ZoD9LE+hTCzqxpiYIGMBENjWpCVeuJ5cuz5UNt0zkpJxg/4bsPuOcmA==", "receiver"=>{"email"=>"alisa@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@example.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (1.2ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@example.com"], ["encrypted_password", "$2a$11$2EhCP58EPMIxr55EQoYTCOlAh64MuTwxP6d53PQptW0SEC1yZzW0e"], ["created_at", "2019-02-09 12:46:47.634547"], ["updated_at", "2019-02-09 12:46:47.634547"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Load (0.2ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/receiver.rb:12
+  [1m[36mWallet Create (0.6ms)[0m  [1m[32mINSERT INTO "wallets" ("amount", "receiver_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["amount", 0.0], ["receiver_id", 1], ["created_at", "2019-02-09 12:46:47.651606"], ["updated_at", "2019-02-09 12:46:47.651606"]]
+  ↳ app/models/receiver.rb:12
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 255ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:46:47 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.0ms)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mReceiver Load (0.5ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" ORDER BY "wallets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" ORDER BY "wallets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReceiver Load (0.2ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (0.4ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 1], ["LIMIT", 1]]
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:49:24 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 80ms (Views: 66.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:49:36 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MLbAb+4XC9vB6bsM1fL4Of1/tWOXgNrr0a9tY+P+nUQOZGyBPMn4OLAjWmOjB/g4mMrUd5UtPu1sPzjhx+VLbw==", "receiver"=>{"email"=>"alisa@test2.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test2.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (0.4ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test2.com"], ["encrypted_password", "$2a$11$RIYyqvTkuTus5KW1ZSp3yOixCmU.49c3tjdSj.nf5tf/.jSOpy7Ru"], ["created_at", "2019-02-09 12:49:36.220514"], ["updated_at", "2019-02-09 12:49:36.220514"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/receiver.rb:12
+  [1m[36mWallet Create (0.4ms)[0m  [1m[32mINSERT INTO "wallets" ("amount", "receiver_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["amount", 0.0], ["receiver_id", 2], ["created_at", "2019-02-09 12:49:36.239644"], ["updated_at", "2019-02-09 12:49:36.239644"]]
+  ↳ app/models/receiver.rb:12
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 239ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:49:36 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 14ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mReceiver Load (0.4ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 2], ["LIMIT", 1]]
+  [1m[36mReceiver Load (1.9ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:56:36 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 31ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receivers/sign_up" for 127.0.0.1 at 2019-02-09 13:56:46 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_error_messages.html.erb (1.0ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/shared/_links.html.erb (5.4ms)
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/devise-4.6.0/app/views/devise/registrations/new.html.erb within layouts/application (61.1ms)
+Completed 200 OK in 445ms (Views: 405.4ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/receivers" for 127.0.0.1 at 2019-02-09 13:56:58 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DK921HfKlCZJ0p3cpXVOm2a2RTHtBIvnnEA0gDE02kF/83emteAF2SX6pW1miaH1S32ZK62+77baIE2mGxgf1g==", "receiver"=>{"email"=>"alisa@test3.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "receivers" WHERE "receivers"."email" = ? LIMIT ?[0m  [["email", "alisa@test3.com"], ["LIMIT", 1]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Create (0.5ms)[0m  [1m[32mINSERT INTO "receivers" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "alisa@test3.com"], ["encrypted_password", "$2a$11$KOe3F8qCdFyaCfcFJJqdPeu0jFBjcSiI52Onu.jlq/T2uYhpP2NjW"], ["created_at", "2019-02-09 12:56:58.246681"], ["updated_at", "2019-02-09 12:56:58.246681"]]
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mReceiver Load (0.2ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" WHERE "receivers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/receiver.rb:10
+  [1m[36mWallet Create (0.3ms)[0m  [1m[32mINSERT INTO "wallets" ("amount", "receiver_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["amount", 0.0], ["receiver_id", 3], ["created_at", "2019-02-09 12:56:58.278836"], ["updated_at", "2019-02-09 12:56:58.278836"]]
+  ↳ app/models/receiver.rb:10
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 269ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-09 13:56:58 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alisafrunza/.rvm/gems/ruby-2.4.0/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mReceiver Load (0.3ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mReceiver Load (0.5ms)[0m  [1m[34mSELECT  "receivers".* FROM "receivers" ORDER BY "receivers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mWallet Load (0.2ms)[0m  [1m[34mSELECT  "wallets".* FROM "wallets" WHERE "wallets"."receiver_id" = ? LIMIT ?[0m  [["receiver_id", 3], ["LIMIT", 1]]
