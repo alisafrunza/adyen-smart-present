@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_135837) do
+ActiveRecord::Schema.define(version: 2019_02_09_151823) do
 
   create_table "items", force: :cascade do |t|
     t.text "name"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 2019_02_09_135837) do
     t.datetime "updated_at", null: false
     t.integer "wishlist_id"
     t.index ["wishlist_id"], name: "index_items_on_wishlist_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.text "psp_reference"
+    t.text "giver_reference"
+    t.text "giver_email"
+    t.text "comment"
+    t.text "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "wishlist_id"
+    t.index ["wishlist_id"], name: "index_payments_on_wishlist_id"
   end
 
   create_table "receivers", force: :cascade do |t|
@@ -47,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_02_09_135837) do
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "receiver_id"
+    t.index ["receiver_id"], name: "index_wishlists_on_receiver_id"
   end
 
 end
